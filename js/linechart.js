@@ -671,6 +671,7 @@ function init() {
   function nodeDoubleClick(event, node) {
     
     var url=node.data.key.replace(/\.*\d$/g, "");
+    url=url.replace(/\.*\d$/g, "");
     console.log(url);
     window.open('http://'+url,'_blank');
   }
