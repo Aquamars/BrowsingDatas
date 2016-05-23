@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Browsing Datas</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+
+    <link href="css/jquery.incremental-counter.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<style type="text/css">
+.centerDIV{
+    margin-left: auto;
+    margin-right: auto;
+}
+.div-inline{ display:inline} 
+
+</style>
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">    
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Home</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#LineChart">Line Chart</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#LineChart2">Line Chart2</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#Calendar">Calendar</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#PieChart">Pie Chart</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#PieChart2">Pie Chart2</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#TimeLineChart">TimeLine Chart</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#OrgChart">Org Chart</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#TableChart">Table Chart</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#TableChart2">Table Chart2</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Section -->
+    <section id="intro" class="intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <strong><h1>Browsing Datas</h1></strong>                    
+                    <div id="herf" style="display:none">
+                        <div class="incremental-counter"></div>
+                        <a class="btn btn-default page-scroll" href="#LineChart">Click Me to Scroll Down!</a>
+                        <a href="#LineChart"><h4>Everyday log data counting.</h4></a>
+                        <a href="#LineChart2"><h4>Everyhours log data counting.</h4></a>
+                        <a href="#Calendar"><h4>Everyday log data counting with the browsing web.</h4></a>
+                        <a href="#PieChart"><h4>Sorting browsing web with everyday count.</h4></a>
+                        <a href="#PieChart2"><h4>Sorting IP with everyday count.</h4></a>
+                        <a href="#TimeLineChart"><h4>The browsing web durations.</h4></a>
+                        <a href="#OrgChart"><h4>The reference of browsing web with counting.</h4></a>
+                        <a href="#TableChart"><h4>The reference of browsing web with sub counting and org chart.</h4></a>
+                        <a href="#TableChart2"><h4>The browsing web counting with daily count.</h4></a>
+                    </div>
+                    <div id='loading' style="margin:0 auto;"><h1>NOW LOADING...</h1></div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="LineChart" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Line Chart</h1>
+                    <h3>Everyday log data counting.</h3>
+                    <div class="centerDIV" id="chart_div"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="LineChart2" class="services-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Line Chart2</h1>
+                    <h3>Everyhours log data counting.</h3>
+                    <div   id="LineChart_div" style='width: 1200px; height: 500px;'></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="Calendar" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Calendar</h1>
+                    <h3>Everyday log data counting with the browsing web.</h3>
+                    <div class="centerDIV" id="Calendar_div"></div>
+                    <div class="centerDIV" id="BarChart_div"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="PieChart" class="services-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Pie Chart</h1>
+                    <h3>Sorting browsing web with everyday count.</h3>
+                    <div style="overflow: hidden;">
+                        <div id="PieChart_div" style="float:left; width:550px;"></div>
+                        <div id="HOSTChart_div" style="float:right; width:550px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="PieChart2" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Pie Chart2</h1>
+                    <h3>Sorting IP with everyday count.</h3>
+                    <div style="overflow: hidden;">
+                        <div id="PieChart2_div" style="float:left; width:500px;"></div>
+                        <div id="IPChart_div" style="float:left; width:600px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section id="TimeLineChart" class="services-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>TimeLine Chart</h1>
+                    <h3>The browsing web durations.</h3>
+                    <div class="centerDIV" id="TimeLineChart_div"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="OrgChart" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Org Chart</h1>
+                    <h3>The reference of browsing web with counting. </h3>
+                    <div style="overflow: hidden;">
+                        <div id="OrgChart_div" style="overflow: auto;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section id="TableChart" class="services-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Table Chart</h1>
+                    <h3>The reference of browsing web with sub counting and org chart. </h3>
+                    <div class="centerDIV" id="TableChart_div"></div>
+                    <div class="centerDIV" id="OrgChart2_div"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="TableChart2" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Org Chart</h1>
+                    <div style="overflow: hidden;">
+                        <div id="TableChart2_div"></div>
+                        <h3>The browsing web counting with daily count. </h3>
+                        <div class="centerDIV" id="TableColumnChart_div"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Scrolling Nav JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
+    <script type="text/javascript" src="js/jquery.incremental-counter.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript" src="js/linechart.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <div id="chart_div"></div>
+
+<script>
+          google.charts.load('current', {packages:["orgchart"]});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+var xhttpOrgChart = new XMLHttpRequest();
+    xhttpOrgChart.open("GET", "http://140.96.29.77:8080/TARSAN/service/main?service=getRefAndURL&jsonPara=[]", false);
+    xhttpOrgChart.send();
+    var repOrgChart= xhttpOrgChart.responseText;
+    var objOrgChart = JSON.parse(repOrgChart.substring(1, repOrgChart.length - 1));
+       
+ var dataOrgChart = new google.visualization.DataTable();
+    dataOrgChart.addColumn('string', 'Name');
+    dataOrgChart.addColumn('string', 'Ref');
+    for (var i = 0; i < objOrgChart.RefUrl.length; i++) {
+        var counter = objOrgChart.RefUrl[i];
+        dataOrgChart.addRows([
+           [counter.url, counter.ref]
+        ]);
+    }
+
+ var OrgOptions = {
+        size : 'large',
+        'width':2000
+    };
+        // Create the chart.
+        var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+        // Draw the chart, setting the allowHtml option to true for the tooltips.
+        chart.draw(dataOrgChart,OrgOptions );
+      }
+
+</script>
+  <div id='chart_div' style='width: 2000px; height: 1200px;'></div>
+</body>
+</html>
