@@ -45,32 +45,31 @@
     // Collect all of the data for the model of the class hierarchy
     var nodeDataArray = [];
 
-var xhttpOrgChart = new XMLHttpRequest();
+    var xhttpOrgChart = new XMLHttpRequest();
     xhttpOrgChart.open("GET", "http://tarsan.ddns.net:8080/TARSAN/service/main?service=getRefAndURL&jsonPara=[]", false);
     xhttpOrgChart.send();
     var repOrgChart= xhttpOrgChart.responseText;
     var objOrgChart = JSON.parse(repOrgChart.substring(1, repOrgChart.length - 1));
      
 
-
-     for (var i = 0; i < objOrgChart.RefUrl.length; i++) {
-        var counter = objOrgChart.RefUrl[i];
-           nodeDataArray.push({ key: counter.url, parent: counter.ref});
-           nodeDataArray.push({ key: counter.ref});
-        
+     // set up the nodeDataArray
+    for (var i = 0; i < objOrgChart.RefUrl.length; i++) {
+      var counter = objOrgChart.RefUrl[i];
+      nodeDataArray.push({ key: counter.url, parent: counter.ref});
+      nodeDataArray.push({ key: counter.ref});    
     }
-    // set up the nodeDataArray, describing each person/position
+    
     
 
-function uniqBy(a, key) {
-    var seen = {};
-    return a.filter(function(item) {
-        var k = key(item);        
-        return seen.hasOwnProperty(k) ? false : (seen[k] = true);
-    })
-}
-b = uniqBy(nodeDataArray, JSON.stringify)
-//console.log(b);
+    function uniqBy(a, key) {
+        var seen = {};
+        return a.filter(function(item) {
+            var k = key(item);        
+            return seen.hasOwnProperty(k) ? false : (seen[k] = true);
+        })
+    }
+    b = uniqBy(nodeDataArray, JSON.stringify)
+    //console.log(b);
     // Iterate over all of the classes in "go"
     // for (k in go) {
     //   var cls = go[k];
@@ -113,7 +112,7 @@ b = uniqBy(nodeDataArray, JSON.stringify)
     //             spacing: new go.Size(3, 3) }),
     //       model: new go.Model(singlesArray)  // use a separate model
     //     });
-}
+  }
 
   // When a Node is double clicked, open the documentation for the corresponding class in a new window
   function nodeDoubleClick(event, node) {
